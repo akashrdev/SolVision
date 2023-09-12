@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import * as solanaweb3 from '@solana/web3.js';
 const endpoint = process.env.NEXT_PUBLIC_ENDPOINT;
+import Price from './components/Price.js';
 
 export default function Home() {
   const searchAddress = '2hYSJTQst2Ca71ZQwVExXCWtgDmjAmKLJwNhdDYqWk3j';
@@ -44,8 +45,11 @@ export default function Home() {
   }, []);
 
   return (
-    <div class="flex align-middle justify-center items-center h-screen w-screen">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex">
+    <div className="flex align-end justify-end items-start p-20 h-screen w-screen">
+      <div>
+        <Price />
+      </div>
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex">
         should be a button
       </button>
     </div>
