@@ -1,14 +1,9 @@
-'use client';
-import { useState, useEffect } from 'react';
 import * as solanaweb3 from '@solana/web3.js';
 const endpoint = process.env.NEXT_PUBLIC_ENDPOINT;
-import Price from './components/Price.js';
-import Header from './components/Header.js';
 
-export default function Home() {
+const LoginButton = () => {
   const searchAddress = '2hYSJTQst2Ca71ZQwVExXCWtgDmjAmKLJwNhdDYqWk3j';
   const solanaConnection = new solanaweb3.Connection(endpoint);
-
   const getTransactions = async (address, numTx) => {
     const pubKey = new solanaweb3.PublicKey(address);
     let transactionList = await solanaConnection.getSignaturesForAddress(
@@ -41,18 +36,14 @@ export default function Home() {
     });
   };
 
-  useEffect(() => {
-    getTransactions(searchAddress, 10);
-  }, []);
-
   return (
-    <div className="">
-      <div>
-        <Header />
-      </div>
-      <div>
-        <Price />
-      </div>
-    </div>
+    <button
+      className="bg-purple-900 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded flex align-middle items-center"
+      onClick={getTransactions}
+    >
+      Login
+    </button>
   );
-}
+};
+
+export default LoginButton;
