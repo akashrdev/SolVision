@@ -18,12 +18,12 @@ const Price = () => {
       console.log(error);
     });
   return (
-    <div className="flex w-screen justify-center border-b border-white flex-row space-x-5">
+    <div className="flex w-screen justify-center border-b border-black flex-row space-x-5 bg-zinc-800">
       <h1 className="text-white text-sm">
         SOL ${Math.round((solPrice + Number.EPSILON) * 100) / 100}
       </h1>
       <div className="flex flex-row space-x-1">
-        <h1 className="text-sm">1H</h1>
+        <h1 className="text-sm text-white">1H</h1>
         {solHourChange < 0 ? (
           <h1 className="text-red-500 text-sm">
             {Math.round((solHourChange + Number.EPSILON) * 100) / 100}%
@@ -35,7 +35,7 @@ const Price = () => {
         )}
       </div>
       <div className="flex flex-row space-x-1">
-        <h1 className="text-sm">24H</h1>
+        <h1 className="text-sm text-white">24H</h1>
         {solDayChange < 0 ? (
           <h1 className="text-red-500 text-sm">
             {Math.round((solDayChange + Number.EPSILON) * 100) / 100}%
