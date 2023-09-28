@@ -179,9 +179,13 @@ const TPS = () => {
       <div className="h-10 border-b border-black flex justify-between">
         <h1 className="m-2 text-white">Transactions per second (TPS)</h1>
         {TPS < 750 ? (
-          <h1 className="text-red-500 font-bold m-2">{Math.ceil(TPS)}</h1>
+          <h1 className="text-red-500 font-bold m-2">
+            {Math.ceil(TPS).toLocaleString('en-US')}
+          </h1>
         ) : (
-          <h1 className="text-emerald-500 font-bold m-2">{Math.ceil(TPS)}</h1>
+          <h1 className="text-emerald-500 font-bold m-2">
+            {Math.ceil(TPS).toLocaleString('en-US')}
+          </h1>
         )}
       </div>
       <div className="flex justify-center mb-2">
